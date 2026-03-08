@@ -3,302 +3,228 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вилла Крым — Коттеджный посёлок у двух морей | Керчь</title>
-  <meta name="description" content="Коттеджный посёлок Вилла Крым в Керчи: ваш дом у двух морей. 969 домов на 130 га. Выберите пакет и начните новую жизнь.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Вилла Крым — Приложение жителя</title>
+  <meta name="description" content="Мобильное веб-приложение для жителей коттеджного посёлка Вилла Крым.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="parallax-bg" aria-hidden="true">
-    <div class="parallax-layer layer-1"></div>
-    <div class="parallax-layer layer-2"></div>
-    <div class="parallax-layer layer-3"></div>
-  </div>
-
-  <header class="header">
-    <div class="header-inner">
-      <a href="#" class="logo">
-        <span class="logo-icon">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M24 4L44 20V44H4V20L24 4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-            <circle cx="24" cy="28" r="4" fill="currentColor" opacity="0.8"/>
-            <path d="M18 36L24 32L30 36" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <span class="logo-text">Вилла Крым</span>
-        <span class="logo-sub">Коттеджный посёлок</span>
-      </a>
-      <nav class="nav">
-        <a href="#developers">Застройщики</a>
-        <a href="#about">О поселке</a>
-        <a href="#packages">Пакеты</a>
-        <a href="#infrastructure">Инфраструктура</a>
-        <a href="#contacts">Контакты</a>
-      </nav>
-      <a href="tel:+79782222252" class="header-phone">+7 (978) 222-22-52</a>
-      <button type="button" class="burger" aria-label="Меню">
-        <span></span><span></span><span></span>
-      </button>
+  <header class="app-header">
+    <div>
+      <h1>Вилла Крым</h1>
+      <p class="subtitle">Приложение жителя коттеджного посёлка</p>
     </div>
+    <div id="userBadge" class="user-badge hidden"></div>
   </header>
 
-  <main>
-    <section class="hero" id="hero">
-      <div class="hero-content">
-        <p class="hero-label" data-aos="fade-up">Формат новой жизни</p>
-        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
-          Ваш дом<br>у двух морей
-        </h1>
-        <p class="hero-desc" data-aos="fade-up" data-aos-delay="200">
-          969 каменных и модульных домов на 130 га. Школа и детский сад в 5 минутах, пляж — в 10.
-        </p>
-        <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
-          <div class="stat">
-            <span class="stat-num" data-count="5">0</span>
-            <span class="stat-unit">мин</span>
-            <span class="stat-label">до школы и детского сада</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num" data-count="10">0</span>
-            <span class="stat-unit">мин</span>
-            <span class="stat-label">до пляжа</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num" data-count="969">0</span>
-            <span class="stat-label">домов на 130 га</span>
-          </div>
+  <main class="container">
+    <section id="authSection" class="card">
+      <h2>Вход по коду</h2>
+      <p class="muted">После покупки дома вы получаете сгенерированный код доступа.</p>
+      <form id="authForm" class="form-grid">
+        <label>
+          Код доступа
+          <input id="authCode" type="text" placeholder="Например: VK-1042" required>
+        </label>
+        <div class="row">
+          <button type="submit">Войти</button>
+          <button type="button" id="demoCodeBtn" class="button-secondary">Сгенерировать демо-код</button>
         </div>
-        <div class="hero-actions" data-aos="fade-up" data-aos-delay="400">
-          <a href="#packages" class="btn btn-primary">Изучить предложения</a>
-          <a href="tel:+79782222252" class="btn btn-outline">Позвонить</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-3d-card" data-tilt>
-          <div class="card-inner">
-            <div class="card-face card-front">
-              <div class="card-pattern"></div>
-              <span class="card-badge">Керчь</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      </form>
+      <p id="authMessage" class="status"></p>
     </section>
 
-    <section class="section section-developers" id="developers">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-label">Застройщики</span>
-          <h2 class="section-title">Официальные партнёры посёлка</h2>
-        </div>
-        <div class="developers-grid">
-          <a href="#" class="developer-card" data-aos="fade-up" data-aos-delay="0">
-            <span class="developer-name">Модуль Дом Юг</span>
-            <span class="developer-desc">Модульно-каркасные дома</span>
-          </a>
-          <a href="#" class="developer-card" data-aos="fade-up" data-aos-delay="100">
-            <span class="developer-name">СтройГрад</span>
-            <span class="developer-desc">Каменные дома</span>
-          </a>
-        </div>
-      </div>
-    </section>
+    <section id="appSection" class="hidden">
+      <nav class="tabs">
+        <button class="tab-button active" data-view="profileView">Личный кабинет</button>
+        <button class="tab-button" data-view="chatView">Чат</button>
+        <button class="tab-button" data-view="directView">Личные сообщения</button>
+        <button class="tab-button" data-view="serviceView">Сервисная служба</button>
+        <button class="tab-button" data-view="passesView">Гостевой пропуск</button>
+        <button class="tab-button" data-view="faqView">FAQ</button>
+        <button class="tab-button" data-view="instructionsView">Инструкция к дому</button>
+        <button class="tab-button" data-view="numbersView">Полезные номера</button>
+        <button class="tab-button" data-view="newsView">Новости</button>
+        <button class="tab-button" data-view="afishaView">Афиша</button>
+      </nav>
 
-    <section class="section section-about" id="about">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-label">О посёлке</span>
-          <h2 class="section-title">Тот самый формат жизни, где семья на первом месте</h2>
-        </div>
-        <div class="about-grid">
-          <div class="about-card" data-aos="fade-up" data-aos-delay="0">
-            <div class="about-card-inner">
-              <div class="about-icon">🏠</div>
-              <h3>Комфортная среда</h3>
-              <p>Безопасные улицы, широкие дороги, готовые коммуникации и инфраструктура с первого дня.</p>
-            </div>
-          </div>
-          <div class="about-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="about-card-inner">
-              <div class="about-icon">🌊</div>
-              <h3>У двух морей</h3>
-              <p>Черное и Азовское моря рядом. Пляж в 10 минутах, природа и покой каждый день.</p>
-            </div>
-          </div>
-          <div class="about-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="about-card-inner">
-              <div class="about-icon">👨‍👩‍👧‍👦</div>
-              <h3>Для семей</h3>
-              <p>Дети ходят в школу пешком. Соседи — не незнакомцы за забором, а сообщество.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-packages" id="packages">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-label">Тарифы</span>
-          <h2 class="section-title">Выберите пакетное предложение</h2>
-        </div>
-        <div class="packages-grid">
-          <article class="package-card" data-aos="fade-up" data-aos-delay="0">
-            <div class="package-card-inner">
-              <h3 class="package-name">Базовый</h3>
-              <p class="package-price">от 4 877 453 ₽</p>
-              <p class="package-desc">Дом, участок, забор. Отсыпка щебнем и паркинг вокруг дома. Базовый минимум для комфортного проживания.</p>
-              <ul class="package-features">
-                <li>Дом и участок</li>
-                <li>Забор</li>
-                <li>Паркинг (щебень)</li>
-              </ul>
-              <a href="#contacts" class="btn btn-primary btn-block">Выбрать жизнь у моря</a>
-            </div>
+      <section id="profileView" class="view card active">
+        <h2>Личный кабинет</h2>
+        <div id="profileGrid" class="profile-grid"></div>
+        <div class="billing-grid">
+          <article class="billing-card">
+            <h3>Задолженность</h3>
+            <p id="debtAmount" class="amount debt"></p>
           </article>
-          <article class="package-card package-featured" data-aos="fade-up" data-aos-delay="100">
-            <div class="package-card-inner">
-              <span class="package-badge">Популярный</span>
-              <h3 class="package-name">Комфортный</h3>
-              <p class="package-price">от 5 520 900 ₽</p>
-              <p class="package-desc">Всё из Базового + инженерные коммуникации (свет, вода, канализация) и отделка в доме.</p>
-              <ul class="package-features">
-                <li>Всё из Базового</li>
-                <li>Коммуникации</li>
-                <li>Отделка в доме</li>
-              </ul>
-              <a href="#contacts" class="btn btn-primary btn-block">Выбрать жизнь у моря</a>
-            </div>
-          </article>
-          <article class="package-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="package-card-inner">
-              <h3 class="package-name">Максимальный</h3>
-              <p class="package-price">от 6 477 900 ₽</p>
-              <p class="package-desc">Полностью готовый дом «под ключ»: тротуарная плитка, мебель, хозблок, навес. Заходи и живи.</p>
-              <ul class="package-features">
-                <li>Всё из Комфортного</li>
-                <li>Тротуарная плитка</li>
-                <li>Мебель, хозблок, навес</li>
-              </ul>
-              <a href="#contacts" class="btn btn-primary btn-block">Выбрать жизнь у моря</a>
-            </div>
+          <article class="billing-card">
+            <h3>Сумма к оплате за услуги УК (текущий месяц)</h3>
+            <p id="monthlyAmount" class="amount payment"></p>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section section-infrastructure" id="infrastructure">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-label">Инфраструктура</span>
-          <h2 class="section-title">Что будет в посёлке</h2>
-        </div>
-        <div class="infra-list">
-          <div class="infra-item" data-aos="fade-right" data-aos-delay="0">
-            <span class="infra-num">01</span>
-            <div class="infra-content">
-              <h3>Парк и озеро</h3>
-              <p>Прогулочные аллеи, зона отдыха у воды, йога на берегу и закаты над озером.</p>
-            </div>
-          </div>
-          <div class="infra-item" data-aos="fade-right" data-aos-delay="50">
-            <span class="infra-num">02</span>
-            <div class="infra-content">
-              <h3>Детские и спортивные площадки</h3>
-              <p>Площадки из натуральных материалов, корты, тренажёры, беговые и велодорожки.</p>
-            </div>
-          </div>
-          <div class="infra-item" data-aos="fade-right" data-aos-delay="100">
-            <span class="infra-num">03</span>
-            <div class="infra-content">
-              <h3>Амфитеатр и кино под открытым небом</h3>
-              <p>Концерты, кинотеатр под звёздами, мероприятия для всей семьи.</p>
-            </div>
-          </div>
-          <div class="infra-item" data-aos="fade-right" data-aos-delay="150">
-            <span class="infra-num">04</span>
-            <div class="infra-content">
-              <h3>Рестораны, кофейни, коммерция</h3>
-              <p>Местные продукты, кофейни, салоны красоты, пункты выдачи — всё в шаговой доступности.</p>
-            </div>
+      <section id="chatView" class="view card">
+        <h2>Чат по веткам</h2>
+        <p class="muted">Ветки создаёт владелец приложения. Клиенты могут общаться внутри веток.</p>
+        <div class="chat-layout">
+          <aside>
+            <h3>Ветки</h3>
+            <ul id="threadList" class="thread-list"></ul>
+          </aside>
+          <div>
+            <h3 id="activeThreadTitle">Выберите ветку</h3>
+            <div id="chatMessages" class="chat-messages"></div>
+            <form id="chatForm" class="row">
+              <input id="chatInput" type="text" placeholder="Напишите сообщение..." required>
+              <button type="submit">Отправить</button>
+            </form>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section section-scenarios" id="scenarios">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-label">Сценарии жизни</span>
-          <h2 class="section-title">Выберите свой новый сценарий жизни</h2>
-          <p class="section-desc">Реальная история того, как вы будете жить в «Вилла Крым» — утро, прогулки, общение, ритм дня.</p>
+      <section id="directView" class="view card">
+        <h2>Личные сообщения</h2>
+        <form id="directForm" class="form-grid">
+          <label>
+            Номер дома получателя
+            <select id="directHouseSelect" required></select>
+          </label>
+          <label>
+            Сообщение
+            <textarea id="directText" rows="3" placeholder="Введите текст сообщения..." required></textarea>
+          </label>
+          <button type="submit">Отправить сообщение</button>
+        </form>
+        <div class="split-grid">
+          <article>
+            <h3>Входящие</h3>
+            <ul id="directInbox" class="list"></ul>
+          </article>
+          <article>
+            <h3>Отправленные</h3>
+            <ul id="directSent" class="list"></ul>
+          </article>
         </div>
-        <div class="scenarios-grid">
-          <div class="scenario-card" data-aos="fade-up" data-aos-delay="0">
-            <span class="scenario-icon">👨‍👩‍👧‍👦</span>
-            <h3>Для семей с детьми</h3>
-            <p>Школа и сад в 5 минутах, детские площадки и безопасные улицы.</p>
-          </div>
-          <div class="scenario-card" data-aos="fade-up" data-aos-delay="50">
-            <span class="scenario-icon">🏠</span>
-            <h3>Для переезжающих</h3>
-            <p>Готовый дом под ключ, коммуникации и юридическое сопровождение.</p>
-          </div>
-          <div class="scenario-card" data-aos="fade-up" data-aos-delay="100">
-            <span class="scenario-icon">💻</span>
-            <h3>Для удалёнщиков</h3>
-            <p>Высокоскоростной интернет, тишина и природа у двух морей.</p>
-          </div>
-          <div class="scenario-card" data-aos="fade-up" data-aos-delay="150">
-            <span class="scenario-icon">☀️</span>
-            <h3>Для летней жизни</h3>
-            <p>Пляж в 10 минутах, озеро в посёлке, парк и мероприятия.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section section-cta" id="contacts">
-      <div class="container">
-        <div class="cta-box" data-aos="zoom-in">
-          <h2 class="cta-title">Оставьте заявку</h2>
-          <p class="cta-desc">Мы перезвоним и ответим на все вопросы о жизни в «Вилла Крым»</p>
-          <form class="cta-form" action="#" method="post">
-            <input type="text" name="name" placeholder="Имя" required>
-            <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
-            <label class="checkbox-label">
-              <input type="checkbox" name="consent" required>
-              <span>Даю согласие на обработку персональных данных</span>
-            </label>
-            <button type="submit" class="btn btn-primary btn-block">Отправить</button>
-          </form>
+      <section id="serviceView" class="view card">
+        <h2>Сервисная служба</h2>
+        <form id="serviceForm" class="form-grid">
+          <label>
+            Описание проблемы
+            <textarea id="problemDescription" rows="4" placeholder="Опишите неисправность..." required></textarea>
+          </label>
+          <label>
+            Срочность решения
+            <select id="urgency" required>
+              <option value="">Выберите срочность</option>
+              <option>Высокая</option>
+              <option>Средняя</option>
+              <option>Низкая</option>
+            </select>
+          </label>
+          <label class="checkbox">
+            <input id="asapCheckbox" type="checkbox">
+            <span>Как можно скорее</span>
+          </label>
+          <label>
+            Желаемая дата и время приёма
+            <input id="desiredDateTime" type="datetime-local">
+          </label>
+          <button type="submit">Оставить заявку</button>
+        </form>
+        <h3>Мои заявки</h3>
+        <ul id="serviceRequests" class="list"></ul>
+      </section>
+
+      <section id="passesView" class="view card">
+        <h2>Выписать гостевой пропуск</h2>
+        <form id="passForm" class="form-grid">
+          <label>
+            Фамилия гостя
+            <input id="guestLastName" type="text" required>
+          </label>
+          <label>
+            Имя гостя
+            <input id="guestFirstName" type="text" required>
+          </label>
+          <label>
+            Отчество гостя
+            <input id="guestMiddleName" type="text" required>
+          </label>
+          <label>
+            Телефон гостя
+            <input id="guestPhone" type="tel" required>
+          </label>
+          <button type="submit">Сгенерировать одноразовый QR-пропуск</button>
+        </form>
+
+        <h3>Таблица охраны</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Гость</th>
+                <th>Телефон</th>
+                <th>Кто выписал</th>
+                <th>Когда выписан</th>
+                <th>QR въезд</th>
+                <th>QR выезд</th>
+                <th>Въезд</th>
+                <th>Выезд</th>
+              </tr>
+            </thead>
+            <tbody id="securityTableBody"></tbody>
+          </table>
         </div>
+      </section>
+
+      <section id="faqView" class="view card">
+        <h2>FAQ</h2>
+        <div id="faqList" class="accordion"></div>
+      </section>
+
+      <section id="instructionsView" class="view card">
+        <h2>Инструкция к дому</h2>
+        <p class="muted">Файлы и видео по обслуживанию дома.</p>
+        <div id="instructionsList" class="list"></div>
+      </section>
+
+      <section id="numbersView" class="view card">
+        <h2>Полезные номера</h2>
+        <ul id="numbersList" class="list"></ul>
+      </section>
+
+      <section id="newsView" class="view card">
+        <h2>Новости коттеджного посёлка</h2>
+        <div id="newsList" class="news-grid"></div>
+      </section>
+
+      <section id="afishaView" class="view card">
+        <h2>Афиша</h2>
+        <div id="afishaList" class="news-grid"></div>
+      </section>
+
+      <div class="row top-gap">
+        <button id="logoutBtn" class="button-secondary">Выйти</button>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="logo-text">Вилла Крым</span>
-          <span class="logo-sub">Коттеджный посёлок</span>
-        </div>
-        <div class="footer-contacts">
-          <a href="tel:+79782222252">+7 (978) 222-22-52</a>
-          <p>г. Керчь, Пр-д Лазурного берега, 20</p>
-        </div>
-        <div class="footer-legal">
-          <a href="#">Политика конфиденциальности</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <template id="qrButtonTemplate">
+    <button type="button" class="button-secondary small">Показать</button>
+  </template>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="js/main.js"></script>
+  <dialog id="qrDialog">
+    <article>
+      <h3 id="qrDialogTitle">QR код</h3>
+      <img id="qrImage" alt="QR код пропуска">
+      <p id="qrText" class="small-text"></p>
+      <div class="row">
+        <button id="closeQrDialog" type="button">Закрыть</button>
+      </div>
+    </article>
+  </dialog>
+
+  <script src="app.js"></script>
 </body>
 </html>
